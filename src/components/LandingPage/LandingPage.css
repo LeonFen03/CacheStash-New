@@ -1,6 +1,33 @@
 .landing-bg {
-    background-color:rgb(240, 237, 237);
+    background-image: url('../placeholder_images/ClickCache.png');
+    background-repeat:no-repeat;
+    background-position:0px 20px;
+    background-size: 90%;
     width:100vw;
     height:100vh;
+    max-width: 1800px;
+    min-width:1200px;
     color:black;
+    display:flex;
+    justify-content: space-around;
+}
+.random {
+    color:rgb(51, 128, 222)
+}
+.brand-images {
+    display:flex;
+    justify-content: center;
+    width:100px;
+    height:100px;
+}
+.sign-up-container { 
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.text-content h1 {
+    font-size:3em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display:flex;
+    align-items: center;
 }
