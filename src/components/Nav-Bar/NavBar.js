@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import './NavBar.css'
 function NavBar () {
-    return (<div><nav>
-        <ul>
-            <li>
+    return (<div><nav className="main-nav">
+        <ul className="nav-container">
+            <li >
                 About
             </li>
             <li>
@@ -13,7 +14,7 @@ function NavBar () {
             <li>
                Public Gallery
             </li>
-            <li>Login <AccountCircle /></li>
+            <li style={{display:'flex',alignItems:'center'}}>Login <AccountCircle /></li>
         </ul>
     </nav>
     <Outlet />

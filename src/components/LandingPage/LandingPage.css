@@ -1,12 +1,13 @@
 .landing-bg {
-    background-image: url('../placeholder_images/ClickCache.png');
+    background-image: url('../placeholder_images/cachestash.jpg');
     background-repeat:no-repeat;
     background-position:0px 20px;
-    background-size: 90%;
+    background-size: 110%;
     width:100vw;
     height:100vh;
-    max-width: 1800px;
-    min-width:1200px;
+    max-width: 1900px;
+    min-width:1300px;
+    min-height:900px;
     color:black;
     display:flex;
     justify-content: space-around;
