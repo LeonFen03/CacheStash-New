@@ -16,6 +16,10 @@
 .logo {
     cursor: pointer;
 }
+.nav-links-class {
+    text-decoration: none;
+    color:rgb(15, 39, 71);
+}
 .main-nav .nav-container li{
     display:inline-block;
     color:rgb(15, 39, 71);

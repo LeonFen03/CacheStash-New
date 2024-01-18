@@ -23,7 +23,7 @@ function NavBar () {
                 Price plans
             </li>
             <li>
-              <NavLink to="/public"> Public Gallery</NavLink>
+              <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
             </li>
             <li style={{display:'flex',alignItems:'center'}}>Login <AccountCircle /></li>
         </ul>
