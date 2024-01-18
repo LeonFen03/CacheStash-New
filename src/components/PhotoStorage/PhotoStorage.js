@@ -1,4 +1,4 @@
-function About () {
+function PhotoStorage() {
     return (<div>
         
     </div>)
