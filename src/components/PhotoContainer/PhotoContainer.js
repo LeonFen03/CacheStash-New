@@ -1,5 +1,5 @@
 function PhotoContainer() {
-    return (<div>
+    return (<div className="photo-card-container">
 
     </div>)
 }
