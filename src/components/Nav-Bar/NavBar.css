@@ -2,10 +2,19 @@
     padding:20px;
     position:sticky;
     top:0px;
+    background-color:white;
+    box-shadow: 2px 2px 4px rgb(15, 39, 71);
+    z-index:10;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .main-nav ul {
     display:flex;
     justify-content: end;
+}
+.logo {
+    cursor: pointer;
 }
 .main-nav .nav-container li{
     display:inline-block;

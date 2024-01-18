@@ -4,10 +4,12 @@ import { AnimatePresence } from 'framer-motion';
 import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
 import NavBar from './components/Nav-Bar/NavBar';
 import LandingPage from './components/LandingPage/LandingPage';
+import PhotoGallery from './components/Photo-Gallery/PhotoGallery';
 function App() {
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/"  element={<NavBar />}> 
-      <Route path="/Home" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/public" element={<PhotoGallery />} />
     </Route>))
 
   return (
