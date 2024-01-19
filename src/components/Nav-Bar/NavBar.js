@@ -32,13 +32,14 @@ function NavBar () {
             <li >
                 About
             </li>
+            {currentUser ? <li>PhotoDrive</li> : ''}
             <li>
                 Price plans
             </li>
             <li>
               <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
             </li>
-            <li style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /> </li>
+            <li  onClick={() => navigate('/login')} style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /> </li>
             <li><Button onClick={logout}>Sign out</Button></li>
         </ul>
     </nav>
