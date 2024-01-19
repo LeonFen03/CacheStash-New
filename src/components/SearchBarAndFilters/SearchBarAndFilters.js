@@ -21,16 +21,21 @@ const pagesConverter  = (items,numOfPages = 2) => {
   })
   return  pagesArray;
 }
-
 function SearchBarAndFilter({photos}) {
   const [category,setCategory] = useState('All')
   const [sorted,setSorted] = useState([])
   const [pageNumber,setPageNumber] = useState(0);
   const [searchTerm,setSearchTerm] = useState('');
-
+  function turnPage(event,value ) {
+    setPageNumber(value-1);
+  }
   function handleSearch (e) {
         setSearchTerm(e.target.value);
   }
+  const handleCategoryChange = (event, newValue) => {
+    setPageNumber(0);
+    setCategory(newValue);
+  };
   const categoriesWithColorTypes = [
     ["Adventure", "error"],
     ["Nature", "info"],
@@ -66,7 +71,7 @@ function SearchBarAndFilter({photos}) {
         return true;
     }),10);
 
-      return allpages[pageNumber];
+      return allpages;
 
   },[sorted,searchTerm,pageNumber])
 
@@ -89,11 +94,12 @@ function SearchBarAndFilter({photos}) {
         }}
       />
       <div>
-        <ColorTabs category={category} setCategory={setCategory} categories={categoriesWithColorTypes} />
+        <ColorTabs category={category}  handleCategoryChange={handleCategoryChange} categories={categoriesWithColorTypes} />
       </div>
     </div>
     </div>
-    <PhotoContainer sortedFiltered={sortedFiltered}/>
+    <PhotoContainer sortedFiltered={sortedFiltered[pageNumber]} numOfPages={sortedFiltered.length} pageNumber={pageNumber} turnPage={turnPage} />
+    
     </div>)
 }
 export default SearchBarAndFilter;

@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
-function PhotoContainer({sortedFiltered}) {
+import PaginationRanges from '../Utility-Functions/Pagination';
+function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
     console.log(sortedFiltered)
     return (<div className="photo-card-container">
         <div className="photo-gallery">
@@ -11,6 +12,7 @@ function PhotoContainer({sortedFiltered}) {
             return <PhotoCard photo_url={img.urls.regular} name={img.user.username} avatar_url={img.user.profile_image.medium} description={img.description} category={img.category}/>
         })}
         </div>
+        <PaginationRanges numOfPages={numOfPages} turnPage={turnPage} />
     </div>)
 }
 

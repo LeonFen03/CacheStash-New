@@ -3,17 +3,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
-export default function ColorTabs({ categories ,setCategory,category }) {
-
-  const handleChange = (event, newValue) => {
-    setCategory(newValue);
-  };
+export default function ColorTabs({ categories ,handleCategoryChange,category }) {
 
   return (
     <Box sx={{ width: '100%' }}>
       <Tabs
         value={category}
-        onChange={handleChange}
+        onChange={handleCategoryChange}
         textColor="rgb(15, 39, 71)"
       >
        {categories.map((name, index) => {
