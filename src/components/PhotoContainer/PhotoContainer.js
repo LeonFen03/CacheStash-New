@@ -3,24 +3,24 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
-function PhotoContainer({photos, handleSearch, searchTerm}) {
-
-    const photosFiltered = useMemo(() => {
-        console.log(photos[0]);
-        return photos.filter((object) => {
+function PhotoContainer({sorted, searchTerm}) {
+    
+    const sortedFiltered = useMemo(() => {
+        console.log(sorted[0]);
+        return sorted.filter((object) => {
             const description = object.description;
             if (description !== null) {
-                if (description.toLowerCase().includes(searchTerm.toLowerCase()) || photos.category !== undefined) {
+                if (description.toLowerCase().includes(searchTerm.toLowerCase()) || sorted.category !== undefined) {
                     return true;
                 }   
                 return false;    
             }
             return true;
         })
-    },[photos,searchTerm])
+    },[sorted,searchTerm])
     return (<div className="photo-card-container">
         <div className="photo-gallery">
-        {photosFiltered.map((img) => {
+        {sortedFiltered.map((img) => {
             return <PhotoCard photo_url={img.urls.regular} name={img.user.username} avatar_url={img.user.profile_image.medium} description={img.description} category={img.category}/>
         })}
         </div>
