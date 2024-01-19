@@ -21,7 +21,6 @@ function PhotoGallery () {
     useEffect(() => {
         fetch('https://api.unsplash.com/photos/?client_id=pJqzF8NAu8Yda5WIXH3cnDcLthV_cG7vCGfd3XHMaJo&per_page=60').then( async (photos) => {
             setPhotos((await photos.json()).map((object) => {
-                console.log(object)
                 return {
                     ...object,
                     "category": categoriesWithColorTypes[Math.floor(Math.random()*categoriesWithColorTypes.length)]

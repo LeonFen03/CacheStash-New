@@ -31,21 +31,31 @@ function SearchBarAndFilter({photos}) {
   }
   function handleSearch (e) {
         setSearchTerm(e.target.value);
-  }
+  } 
   const handleCategoryChange = (event, newValue) => {
     setPageNumber(0);
     setCategory(newValue);
   };
-  const categoriesWithColorTypes = [
-    ["Adventure", "error"],
-    ["Nature", "info"],
-    ["Urban", "warning"],
-    ["Portraits", "success"],
-    ["Travel", "primary"],
-    ["Stuff", "secondary"],
-    ["Events", "primary"],
-    ["All"]
-];
+  function grabAllCategories (list) {
+      const ListOfAllCategories = new Set(['All']);
+      if (!list.length) return [
+        "Adventure",
+        "Nature",
+        "Urban",
+        "Portraits",
+        "Travel",
+        "Stuff",
+        "Events",
+    ];
+      list.forEach((photo) => {
+        ListOfAllCategories.add(photo.category[0]);
+      })
+  return [...ListOfAllCategories.keys()];
+  }
+  const categoriesWithColorTypes = useMemo(() => {
+    return grabAllCategories(photos);
+  },[photos]) 
+
   useEffect(() => {
     setSorted((prev) => {
         return photos.filter((photo) => {
