@@ -7,12 +7,18 @@ import './NavBar.css'
 import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from '../User/CurrentUser';
 import { useContext } from 'react';
+import { Button } from '@mui/material';
 function NavBar () {
     const navigate = useNavigate();
-    const {currentUser} = useContext(CurrentUser);
+    const {currentUser, setCurrentUser} = useContext(CurrentUser);
     function clickEvent () {
         navigate('/')
 
+    }
+    function logout () {
+        setCurrentUser(null);
+        localStorage.setItem('token', null);
+        navigate('/');
     }
     useEffect(() => {
 
@@ -32,7 +38,8 @@ function NavBar () {
             <li>
               <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
             </li>
-            <li style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /></li>
+            <li style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /> </li>
+            <li><Button onClick={logout}>Sign out</Button></li>
         </ul>
     </nav>
     <Outlet />
