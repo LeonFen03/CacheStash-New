@@ -5,9 +5,27 @@ import {InputAdornment} from '@mui/material';
 import ColorTabs from '../Utility-Functions/MaterialUITabs';
 import { useMemo, useState,useEffect } from 'react';
 import PhotoContainer from '../PhotoContainer/PhotoContainer';
+const pagesConverter  = (items,numOfPages = 2) => {
+  let pageIndex = 0;
+  const pagesArray = [[]];
+  if (!items.length) return [[]];
+  items.forEach((item,index) => {
+    if ((index+1) % numOfPages === 0) {
+      pageIndex++
+      pagesArray[pageIndex] = [];
+      pagesArray[pageIndex].push(item)
+    }   else {
+      pagesArray[pageIndex].push(item)
+    }
+    
+  })
+  return  pagesArray;
+}
+
 function SearchBarAndFilter({photos}) {
   const [category,setCategory] = useState('All')
   const [sorted,setSorted] = useState([])
+  const [pageNumber,setPageNumber] = useState(0);
   const [searchTerm,setSearchTerm] = useState('');
 
   function handleSearch (e) {
@@ -35,6 +53,23 @@ function SearchBarAndFilter({photos}) {
 
   },[photos,category])
 
+  const sortedFiltered = useMemo(() => {
+
+      let allpages = pagesConverter(sorted.filter((object) => {
+        const description = object.description;
+        if (description !== null) {
+            if (description.toLowerCase().includes(searchTerm.toLowerCase()) || sorted.category !== undefined) {
+                return true;
+            }   
+            return false;    
+        }
+        return true;
+    }),10);
+
+      return allpages[pageNumber];
+
+  },[sorted,searchTerm,pageNumber])
+
 
     return (
       <div  className="gallery-container">
@@ -58,7 +93,7 @@ function SearchBarAndFilter({photos}) {
       </div>
     </div>
     </div>
-    <PhotoContainer  searchTerm={searchTerm} sorted={sorted}/>
+    <PhotoContainer sortedFiltered={sortedFiltered}/>
     </div>)
 }
 export default SearchBarAndFilter;

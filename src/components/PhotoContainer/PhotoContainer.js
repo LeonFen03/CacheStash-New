@@ -3,21 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
-function PhotoContainer({sorted, searchTerm}) {
-    
-    const sortedFiltered = useMemo(() => {
-        console.log(sorted[0]);
-        return sorted.filter((object) => {
-            const description = object.description;
-            if (description !== null) {
-                if (description.toLowerCase().includes(searchTerm.toLowerCase()) || sorted.category !== undefined) {
-                    return true;
-                }   
-                return false;    
-            }
-            return true;
-        })
-    },[sorted,searchTerm])
+function PhotoContainer({sortedFiltered}) {
+    console.log(sortedFiltered)
     return (<div className="photo-card-container">
         <div className="photo-gallery">
         {sortedFiltered.map((img) => {
