@@ -4,12 +4,18 @@
     transition:1s;
     cursor: pointer;
     position:relative;
+    border-radius:20px;
     z-index:3;
 }
 .user-header {
     display:flex;
     padding:10px;
     align-items:center;
+    justify-content: space-between;
+}
+.user-info-header {
+    display:flex;
+    align-items: center;
 }
 .user-header p {
     margin:10px;

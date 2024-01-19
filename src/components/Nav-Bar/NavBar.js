@@ -16,9 +16,12 @@ function NavBar () {
 
     }
     function logout () {
+        if (currentUser !== null) {
+            navigate('/');
+        }
         setCurrentUser(null);
         localStorage.setItem('token', null);
-        navigate('/');
+        
     }
     useEffect(() => {
 
