@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { NavLink } from 'react-router-dom';
@@ -9,11 +9,14 @@ import { CurrentUser } from '../User/CurrentUser';
 import { useContext } from 'react';
 function NavBar () {
     const navigate = useNavigate();
-    const currentUser = useContext(CurrentUser);
+    const {currentUser} = useContext(CurrentUser);
     function clickEvent () {
         navigate('/')
 
     }
+    useEffect(() => {
+
+    },[currentUser])
     
     return (<div><nav className="main-nav">
         <div className="logo">
@@ -29,7 +32,7 @@ function NavBar () {
             <li>
               <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
             </li>
-            <li style={{display:'flex',alignItems:'center'}}>{currentUser ? currentUser.username : 'Login'} <AccountCircle /></li>
+            <li style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /></li>
         </ul>
     </nav>
     <Outlet />
