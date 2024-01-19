@@ -5,6 +5,7 @@ import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} fr
 import NavBar from './components/Nav-Bar/NavBar';
 import LandingPage from './components/LandingPage/LandingPage';
 import PhotoGallery from './components/Photo-Gallery/PhotoGallery';
+import CurrentUserProvider from './components/User/CurrentUser';
 function App() {
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/"  element={<NavBar />}> 
@@ -14,7 +15,9 @@ function App() {
 
   return (
     <AnimatePresence >
+      <CurrentUserProvider >
   <RouterProvider router={appRouter} />
+  </CurrentUserProvider>
   </AnimatePresence>);
 }
 

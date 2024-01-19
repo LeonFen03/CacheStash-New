@@ -5,12 +5,16 @@ import { NavLink } from 'react-router-dom';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import './NavBar.css'
 import { useNavigate } from 'react-router-dom';
+import { CurrentUser } from '../User/CurrentUser';
+import { useContext } from 'react';
 function NavBar () {
     const navigate = useNavigate();
+    const currentUser = useContext(CurrentUser);
     function clickEvent () {
         navigate('/')
 
     }
+    
     return (<div><nav className="main-nav">
         <div className="logo">
             <h2  onClick={clickEvent}  >CacheStash <AddAPhotoIcon style={{fontSize:'1.3em'}}/></h2>
@@ -25,7 +29,7 @@ function NavBar () {
             <li>
               <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
             </li>
-            <li style={{display:'flex',alignItems:'center'}}>Login <AccountCircle /></li>
+            <li style={{display:'flex',alignItems:'center'}}>{currentUser ? currentUser.username : 'Login'} <AccountCircle /></li>
         </ul>
     </nav>
     <Outlet />

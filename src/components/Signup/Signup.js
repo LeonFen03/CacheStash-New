@@ -4,7 +4,25 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import {Button} from '@mui/material';
 import './Signup.css'
+import { useState } from 'react';
 function Signup () {
+    const [profile,setProfile] = useState({
+      email:'',
+      username:'',
+      password:''
+  })
+  async function handleSubmit (e) {
+    e.preventDefault()
+    await fetch(`http://localhost:4000/users/`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(profile)
+		})
+
+  }
+
     return (<div className="signup-container"> 
     <h2>Sign up</h2>
     <div className="input-box">
@@ -20,6 +38,11 @@ function Signup () {
           ),
         }}
         variant="standard"
+        onChange={(e) => setProfile((prev) => {
+          return {...prev, 
+          email: e.target.value
+          }
+        })}
       />
         </div>
         <div className="input-box">
@@ -35,6 +58,11 @@ function Signup () {
           ),
         }}
         variant="standard"
+        onChange={(e) => setProfile((prev) => {
+          return {...prev, 
+          email: e.target.value
+          }
+        })}
       />
       </div>
       <div className="input-box">
@@ -45,10 +73,15 @@ function Signup () {
           autoComplete="current-password"
           variant="standard"
           style={{maxWidth:'400px',width:'90%',minWidth:'300px',marginBottom:'30px'}}
+          onChange={(e) => setProfile((prev) => {
+            return {...prev, 
+            email: e.target.value
+            }
+          })}
         />
         </div>
         <div className="input-box">
-            <Button variant="contained">Submit</Button>
+            <Button onClick={handleSubmit} variant="contained">Submit</Button>
         </div>
     </div>)
 }

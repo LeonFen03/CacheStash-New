@@ -11,6 +11,7 @@ function PhotoContainer({handleSearch, searchTerm}) {
         })
     },[])
     const photosFiltered = useMemo(() => {
+        console.log(photos[0]);
         return photos.filter((object) => {
             const description = object.description;
             if (description !== null) {

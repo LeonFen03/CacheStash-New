@@ -7,7 +7,6 @@ function LandingPage () {
         <div className="brand-images">
             <div className="text-content">
                 {/* <h1>ClickCache <AddAPhotoIcon style={{fontSize:'1.5em',color:'rgb(51, 128, 222)'}} /> </h1> */}
-            
             </div>
         </div>
         <div className="sign-up-container">
