@@ -1,0 +1,12 @@
+.photodrive-container {
+    border-radius:30px;
+    background-color:rgb(230, 226, 226);
+    width:100%;
+    margin:auto;
+    max-width:1250px;
+}
+.user-title {
+    display:flex;
+    justify-content: center;
+    
+}

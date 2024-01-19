@@ -35,7 +35,7 @@ function NavBar () {
             <li >
                 About
             </li>
-            {currentUser ? <li>PhotoDrive</li> : ''}
+            {currentUser ? <li>  <NavLink className="nav-links-class" to="/photodrive">PhotoDrive</NavLink></li> : ''}
             <li>
                 Price plans
             </li>
