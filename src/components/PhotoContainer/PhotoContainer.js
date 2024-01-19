@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
+
 import PaginationRanges from '../Utility-Functions/Pagination';
 function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
     console.log(sortedFiltered)
@@ -11,6 +12,7 @@ function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
         {sortedFiltered.map((img) => {
             return <PhotoCard photo_url={img.urls.regular} name={img.user.username} avatar_url={img.user.profile_image.medium} description={img.description} category={img.category}/>
         })}
+        {!sortedFiltered.length ? 'You have no photos' : ''}
         </div>
         <PaginationRanges numOfPages={numOfPages} turnPage={turnPage} />
     </div>)

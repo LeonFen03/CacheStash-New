@@ -11,7 +11,9 @@ function PhotoDrive() {
         <div className="user-title">
             <h2>Welcome, {currentUser.username}</h2>
         </div>
-        
+        <div className="user-photo-creator">
+
+        </div>
     </div>)
 }
 
