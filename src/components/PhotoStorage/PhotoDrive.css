@@ -1,8 +1,11 @@
 .photodrive-container {
     border-radius:10px;
-    background-color:rgb(242, 239, 239);
+    
+    box-shadow:10px 10px 2px grey;
+    border:2px solid grey;
     width:100%;
     margin:auto;
+    margin-top:50px;
     max-width:1250px;
 }
 .user-photo-creator {

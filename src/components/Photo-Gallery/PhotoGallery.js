@@ -19,7 +19,7 @@ function PhotoGallery () {
     
     const [photos,setPhotos] = useState([]);
     useEffect(() => {
-        fetch('https://api.unsplash.com/photos/?client_id=pJqzF8NAu8Yda5WIXH3cnDcLthV_cG7vCGfd3XHMaJo&per_page=60').then( async (photos) => {
+        fetch('https:/api.unsplash.com/photos/?client_id=pJqzF8NAu8Yda5WIXH3cnDcLthV_cG7vCGfd3XHMaJo&per_page=60').then( async (photos) => {
             setPhotos((await photos.json()).map((object) => {
                 return {
                     ...object,
