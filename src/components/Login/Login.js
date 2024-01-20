@@ -31,6 +31,7 @@ function Login () {
         setShowPassword(!showPassword)
     }
     async function handleSubmit(e) {
+        e.preventDefault()
         const response = await fetch(`http://localhost:4000/authentication/`, {
             method: 'POST',
             headers: {
@@ -59,13 +60,11 @@ function Login () {
           <TextField
         style={{color:'black'}}
           required
-          id="outlined-required"
           label="Email"
           onChange={(e) => setCredentials({...credentials, email: e.target.value})}
         />
         <br />
           <OutlinedInput
-            id="outlined-adornment-password"
             style={{color:'blue'}}
             type={showPassword ? 'text' : 'password'}
             onChange={(e) => setCredentials({...credentials, password: e.target.value})}

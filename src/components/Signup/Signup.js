@@ -5,14 +5,19 @@ import InputAdornment from '@mui/material/InputAdornment';
 import {Button} from '@mui/material';
 import './Signup.css'
 import { useState } from 'react';
+import { useEffect } from 'react';
 function Signup () {
     const [profile,setProfile] = useState({
       email:'',
       username:'',
       password:''
   })
+  useEffect(() => {
+    console.log(profile);
+  },[profile])
   async function handleSubmit (e) {
     e.preventDefault()
+    console.log(profile)
     await fetch(`http://localhost:4000/users/`, {
 			method: 'POST',
 			headers: {
@@ -60,7 +65,7 @@ function Signup () {
         variant="standard"
         onChange={(e) => setProfile((prev) => {
           return {...prev, 
-          email: e.target.value
+          username: e.target.value
           }
         })}
       />
@@ -75,7 +80,7 @@ function Signup () {
           style={{maxWidth:'400px',width:'90%',minWidth:'300px',marginBottom:'30px'}}
           onChange={(e) => setProfile((prev) => {
             return {...prev, 
-            email: e.target.value
+            password: e.target.value
             }
           })}
         />

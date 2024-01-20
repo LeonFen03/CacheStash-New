@@ -21,8 +21,13 @@ function PhotoGallery () {
     useEffect(() => {
         fetch('https:/api.unsplash.com/photos/?client_id=pJqzF8NAu8Yda5WIXH3cnDcLthV_cG7vCGfd3XHMaJo&per_page=60').then( async (photos) => {
             setPhotos((await photos.json()).map((object) => {
+
                 return {
                     ...object,
+                    image_url:object.urls.regular,
+                    user_name:object.user.username,
+                    avatar_url:object.user.profile_image.medium,
+                    description:object.description,
                     "category": categoriesWithColorTypes[Math.floor(Math.random()*categoriesWithColorTypes.length)]
                 };
             }));

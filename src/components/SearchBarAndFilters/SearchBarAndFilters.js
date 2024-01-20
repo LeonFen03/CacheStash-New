@@ -64,7 +64,7 @@ function SearchBarAndFilter({photos}) {
 
       let allpages = pagesConverter(sorted.filter((object) => {
         const description = object.description;
-        if (description !== null) {
+        if (description !== null && description !== undefined) {
             if (description.toLowerCase().includes(searchTerm.toLowerCase()) || sorted.category !== undefined) {
                 return true;
             }   
