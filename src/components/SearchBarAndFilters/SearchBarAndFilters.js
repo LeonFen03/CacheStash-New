@@ -38,19 +38,11 @@ function SearchBarAndFilter({photos}) {
   };
   function grabAllCategories (list) {
       const ListOfAllCategories = new Set(['All']);
-      if (!list.length) return [
-        "Adventure",
-        "Nature",
-        "Urban",
-        "Portraits",
-        "Travel",
-        "Stuff",
-        "Events",
-    ];
+      if (!list.length) return new Set();
       list.forEach((photo) => {
         ListOfAllCategories.add(photo.category[0]);
       })
-  return [...ListOfAllCategories.keys()];
+  return ListOfAllCategories;
   }
   const categoriesWithColorTypes = useMemo(() => {
     return grabAllCategories(photos);
@@ -104,7 +96,7 @@ function SearchBarAndFilter({photos}) {
         }}
       />
       <div>
-        <ColorTabs category={category}  handleCategoryChange={handleCategoryChange} categories={categoriesWithColorTypes} />
+        <ColorTabs category={category}  handleCategoryChange={handleCategoryChange} categoriesAvailable={categoriesWithColorTypes} />
       </div>
     </div>
     </div>
