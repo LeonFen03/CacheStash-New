@@ -5,6 +5,11 @@
     margin:auto;
     max-width:1250px;
 }
+.user-photo-creator {
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
 .user-title {
     display:flex;
     justify-content: center;

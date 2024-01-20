@@ -3,15 +3,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
-
 import PaginationRanges from '../Utility-Functions/Pagination';
+import MasonryImageList from '../Utility-Functions/ImageOrganization';
 function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
-    console.log(sortedFiltered)
     return (<div className="photo-card-container">
         <div className="photo-gallery">
-        {sortedFiltered.map((img) => {
+        <MasonryImageList images={sortedFiltered.map((img) => {
             return <PhotoCard photo_url={img.urls.regular} name={img.user.username} avatar_url={img.user.profile_image.medium} description={img.description} category={img.category}/>
-        })}
+        })} />
         {!sortedFiltered.length ? 'You have no photos' : ''}
         </div>
         <PaginationRanges numOfPages={numOfPages} turnPage={turnPage} />
