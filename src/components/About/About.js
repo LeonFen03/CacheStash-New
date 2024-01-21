@@ -35,9 +35,10 @@ function AboutPage() {
           paragraph
           sx={{ fontFamily: 'Gibson Light, sans-serif' }}
         >
-          Welcome to CacheStash a little project thats helping you out in a big way! CacheStash is your new location for storing files. You can easily store, sort, and share your images to access anytime on any device!
-          To get started simply sign up for a free profile and start storing your images today!
-        </Typography>
+
+Welcome to CacheStash, an innovative platform designed to elevate your file management experience. CacheStash serves as your premier destination for storing, organizing, and sharing files seamlessly. Effortlessly store and access your images from any device, ensuring convenience and accessibility.
+
+Embark on your journey by creating a complimentary profile, empowering you to efficiently manage and store your images with ease. Elevate your file storage experience with CacheStash – where professionalism meets practicality. Sign up today and unlock a world of streamlined file management.        </Typography>
         <Stack
           sx={{ pt: 4 }}
           direction="row"
