@@ -8,6 +8,9 @@ import PhotoGallery from './components/Photo-Gallery/PhotoGallery';
 import CurrentUserProvider from './components/User/CurrentUser';
 import Login from './components/Login/Login';
 import PhotoDrive from './components/PhotoStorage/PhotoDrive';
+import About from './components/About/About';
+import Priceplans from './components/Priceplans/Priceplans'
+
 function App() {
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/"  element={<NavBar />}> 
