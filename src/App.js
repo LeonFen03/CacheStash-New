@@ -18,8 +18,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/public" element={<PhotoGallery />} />
       <Route path="/photodrive" element={<PhotoDrive />} />
-      <Route path="/about" element={<PhotoDrive/>}/>
-      <Route path="/priceplans" element={<PhotoDrive/>}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/priceplans" element={<PricePlans />}/>
     </Route>))
 
   return (

@@ -32,7 +32,7 @@ function PhotoGallery () {
         })
         setUserPhotos(await response.json());
 
-    } catch (error) {
+    } catch (err) {
         console.log(err)
     }
     }

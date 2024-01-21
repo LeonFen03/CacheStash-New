@@ -7,15 +7,15 @@ import { useContext } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import {Button} from '@mui/material';
 import BasicModal from '../Utility-Functions/MaterialUIModal';
+import motion from 'framer-motion';
 function PhotoCard ({ photo_url, title, name, avatar_url, description, category, id }) {
     const { currentUser } = useContext(CurrentUser);
-    
     async function deletePhoto() {
         const response = await fetch(`http://localhost:4000/images/${id}`, {
             method: 'DELETE'
         });
     }
-    return (<BasicModal id={id} name={name} avatar_url={avatar_url} title={title} img_src={photo_url} description={description} categoryRendered={<MaterialUIChip name={category[0]} color={category[1]}  />}><div className="image-container">
+    return (<BasicModal key={id} id={id} name={name} avatar_url={avatar_url} title={title} img_src={photo_url} description={description} categoryRendered={<MaterialUIChip name={category[0]} color={category[1]}  />}><div className="image-container">
         <img src={photo_url}/>
         <div className="overlay">
             <div className="user-header">

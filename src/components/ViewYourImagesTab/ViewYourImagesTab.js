@@ -6,7 +6,8 @@ function ViewYourImagesTab() {
     const [userPhotos,setUserPhotos] = useState([]);
     const {currentUser} = useContext(CurrentUser);
     const grabUserPhotos = async () => {
-        const response = await fetch(`http://localhost:4000/images`, {
+        try {
+            const response = await fetch(`http://localhost:4000/images`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -16,6 +17,9 @@ function ViewYourImagesTab() {
             })
         })
         setUserPhotos(await response.json());
+        } catch (err) {
+            console.log(err)
+        }
     }
     useEffect(() => {
         grabUserPhotos();

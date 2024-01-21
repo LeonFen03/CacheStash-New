@@ -13,7 +13,6 @@ export default function SelectSmall({ category, selectCategory }) {
         "Travel",
         "Stuff",
         "Events",
-        "All"
     ];
 
   return (
