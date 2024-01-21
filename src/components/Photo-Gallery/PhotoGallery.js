@@ -18,8 +18,10 @@ function PhotoGallery () {
         ["Stuff", "secondary"],
         ["Events", "primary"]
     ];
+
     const grabUserPhotos = async () => {
-        const response = await fetch(`http://localhost:4000/images`, {
+        try {
+            const response = await fetch(`http://localhost:4000/images`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,10 +31,17 @@ function PhotoGallery () {
             })
         })
         setUserPhotos(await response.json());
+
+    } catch (error) {
+        console.log(err)
     }
+    }
+    
     useEffect(() => {
         grabUserPhotos();
     },[]);
+            
+        
 
     
     const [photos,setPhotos] = useState([]);
