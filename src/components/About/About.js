@@ -60,8 +60,8 @@ Embark on your journey by creating a complimentary profile, empowering you to ef
         <Box sx={{ mt: 4, textAlign: 'center' }}>
           {/* should we use the logo here or another image? */}
           {/* <img
-            src=""
-            alt="About Our App"
+            src="./placeholder_images/balloon-bg.png" 
+            alt="Balloon Logo"
             style={{ maxWidth: '100%', height: 'auto' }}
           /> */}
         </Box>
