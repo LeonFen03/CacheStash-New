@@ -4,7 +4,7 @@ import { Avatar } from '@mui/material';
 import MaterialUIChip from '../Utility-Functions/MaterialUIChipComponent';
 import { CurrentUser } from '../User/CurrentUser';
 import { useContext } from 'react';
-function PhotoCard ({ photo_url, name, avatar_url, description, category, id }) {
+function PhotoCard ({ photo_url, title, name, avatar_url, description, category, id }) {
     const { currentUser } = useContext(CurrentUser);
     
     async function deletePhoto() {
@@ -22,6 +22,7 @@ function PhotoCard ({ photo_url, name, avatar_url, description, category, id }) 
             </div>
             <MaterialUIChip name={category[0]} color={category[1]}  />
             </div>
+            <h2>{title}</h2>
             <p> {description}  </p>
             <p><u>Click to view full image</u></p>
         </div>

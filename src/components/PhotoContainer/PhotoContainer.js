@@ -9,7 +9,7 @@ function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
     return (<div className="photo-card-container">
         <div className="photo-gallery">
         <MasonryImageList images={sortedFiltered.map((img) => {
-            return <PhotoCard photo_url={img.image_url} name={img.username} avatar_url={img.avatar_url} description={img.description} category={img.category} id={img._id}/>
+            return <PhotoCard title={img.title} photo_url={img.image_url} name={img.user_name} avatar_url={img.avatar_url} description={img.description} category={img.category} id={img._id}/>
         })} />
         {!sortedFiltered.length ? 'You have no photos' : ''}
         </div>

@@ -23,6 +23,7 @@ function UploadImageTab() {
         description:'',
         category:''
     });
+
     function handleChange (e) {
         const {name, value} = e.target;
         setImage((prev) => ({
@@ -30,48 +31,67 @@ function UploadImageTab() {
             [name]:value
         }))
     }
-    const finalSettings = useRef(image);
+    const appendFormData = useCallback((formData) => {
+        formData.append("user_id", currentUser._id);
+        formData.append("user_name", currentUser.user_name);
+        Object.keys(image).forEach(key => {
+            formData.append(key, image[key]);
+        });
+    },[image])
     const dropzoneRef = useRef(null);
     useEffect(() => {
-        finalSettings.current = image;
-    }, [image]);
-    useEffect(() => {
-        let dz = new Dropzone(dropzoneRef.current, {
-            url: 'http://localhost:4000/upload',
-            autoProcessQueue: false
-        });
-        dz.on("sending", function(file, xhr, formData) {
-            formData.append("user_id", currentUser._id); // Replace 'yourUserIdValue' with the actual user ID
-            formData.append("user_name", currentUser.username);
-            console.log(finalSettings);
-            Object.keys(finalSettings.current).forEach(key => {
-                formData.append(key, finalSettings.current[key]);
+
+    
+        if (dropzoneRef.current) {
+            const dz = new Dropzone(dropzoneRef.current, {
+                url: 'http://localhost:4000/upload',
+                autoProcessQueue: false
             });
-
-
-        });
-        dz.on("success", function(file, response) {
-            setImage({
-                title:'',
-                description:'',
-                category:''
-            })
-        });
-        // Cleanup function
-        return () => {
-            if (dz) {
-                dz.off("sending");
-                dz.destroy();
-                dz = null;
-            }
-        };
+    
+            dz.on("sending", function(file, xhr, formData) {
+                console.log(file.formData)
+                if (file.formData) {
+                    for (let [key, value] of file.formData.entries()) {
+                        formData.append(key, value);
+                    }
+                }
+            });
+    
+            dz.on("success", function(file, response) {
+                setImage({
+                    title: '',
+                    description: '',
+                    category: ''
+                });
+            });
+    
+            // Cleanup function
+            return () => {
+                if (dz) {
+                    dz.off("sending");
+                    dz.off("success");
+                    dz.destroy();
+                }
+            };
+        }
     }, []);
 
     const handleUpload = useCallback(() => {
-        if (dropzoneRef.current.dropzone) {
-            dropzoneRef.current.dropzone.processQueue();
+        if (dropzoneRef.current) {
+            const dz = dropzoneRef.current.dropzone;
+    
+            dz.files.forEach(file => {
+                file.formData = new FormData();
+                file.formData.append("user_id", currentUser._id);
+                file.formData.append("user_name", currentUser.username);
+                Object.keys(image).forEach(key => {
+                    file.formData.append(key, image[key]);
+                });
+            });
+    
+            dz.processQueue();
         }
-    },[])
+    },[image]);
     return <div className="upload-container">
 
         <div className="upload-container">

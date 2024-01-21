@@ -11,7 +11,8 @@ export default function ColorTabs({ categoriesAvailable ,handleCategoryChange, c
     "Portraits",
     "Travel",
     "Stuff",
-    "Events"
+    "Events",
+    "All"
 ];
   return (
     <Box sx={{ width: '100%' }}>
