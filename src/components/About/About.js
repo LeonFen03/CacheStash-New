@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { colors } from './colors'; 
 import { Link } from 'react-router-dom'
 
-function AboutPage() {
+function About() {
   return (
     <Box
       sx={{
@@ -70,4 +70,4 @@ Embark on your journey by creating a complimentary profile, empowering you to ef
   );
 }
 
-export default AboutPage;
+export default About;
