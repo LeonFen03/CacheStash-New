@@ -42,3 +42,10 @@
 .card:hover {
     transform:scale(1.04);
 }
+
+@media only screen and (max-width: 900px) {
+    .card-container {
+        display:flex;
+        flex-direction: column;
+    }
+  }

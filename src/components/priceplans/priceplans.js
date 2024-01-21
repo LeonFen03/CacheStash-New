@@ -46,7 +46,7 @@ function PricePlans() {
         </div>
         <div className="card">
         <div className="card-header">
-        <h2>10 GB   - $5 / mo.</h2>
+        <h2>2 GB   - $120 / mo.</h2>
 
         <div className="overlay-card">
         <p>
