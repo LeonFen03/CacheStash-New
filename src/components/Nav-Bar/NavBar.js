@@ -33,11 +33,11 @@ function NavBar () {
         </div>
         <ul className="nav-container">
             <li >
-                About
+                <NavLink className="nav-links-class" to="/about">About</NavLink>
             </li>
             {currentUser ? <li>  <NavLink className="nav-links-class" to="/photodrive">PhotoDrive</NavLink></li> : ''}
             <li>
-                Price plans
+            <NavLink className="nav-links-class" to="/priceplans">Price Plans</NavLink>
             </li>
             <li>
               <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
