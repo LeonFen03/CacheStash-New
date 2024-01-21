@@ -4,8 +4,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { colors } from './colors';
-// this was so i could mock up colors from our idea without messing with anything else.
+import { colors } from './colors'; 
 
 function AboutPage() {
   return (
@@ -15,6 +14,7 @@ function AboutPage() {
         color: colors.text,
         pt: 8,
         pb: 6,
+        fontFamily: 'Gibson Light, sans-serif',
       }}
     >
       <Container maxWidth="md">
@@ -27,7 +27,13 @@ function AboutPage() {
         >
           About Our App
         </Typography>
-        <Typography variant="h5" align="center" color="text.secondary" paragraph>
+        <Typography
+          variant="h5"
+          align="center"
+          color="text.secondary"
+          paragraph
+          sx={{ fontFamily: 'Gibson Light, sans-serif' }}
+        >
           Welcome to our app! Here, you'll find something extraordinary about the
           collection below—its contents, the creators, and the story behind it.
           We're here to make your experience memorable and enjoyable.
@@ -59,3 +65,4 @@ function AboutPage() {
 }
 
 export default AboutPage;
+
