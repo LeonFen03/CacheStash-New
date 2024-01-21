@@ -8,6 +8,9 @@ import PhotoGallery from './components/Photo-Gallery/PhotoGallery';
 import CurrentUserProvider from './components/User/CurrentUser';
 import Login from './components/Login/Login';
 import PhotoDrive from './components/PhotoStorage/PhotoDrive';
+import About from './components/About/About';
+import PricePlans from './components/PricePlans/priceplans';
+
 function App() {
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/"  element={<NavBar />}> 
@@ -15,8 +18,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/public" element={<PhotoGallery />} />
       <Route path="/photodrive" element={<PhotoDrive />} />
-      <Route path="/about" element={<PhotoDrive/>}/>
-      <Route path="/priceplans" element={<PhotoDrive/>}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/priceplans" element={<PricePlans />}/>
     </Route>))
 
   return (
