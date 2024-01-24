@@ -5,10 +5,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function BasicSelect({categories}) {
+export default function BasicSelect({categories, handleCategoryChange}) {
 categories = [...categories]
-  const handleChange = (event) => {
-  };
+const [category,setCategory] = useState('All');
+
+function handleCategory(e) {
+    setCategory(e.target.value);
+    handleCategoryChange(e,e.target.value);
+  }
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -18,7 +22,7 @@ categories = [...categories]
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Category"
-          onChange={handleChange}
+          onChange={handleCategory}
         >
          {categories.map((tab) => {
           return <MenuItem value={`${tab}`}>{tab}</MenuItem>
