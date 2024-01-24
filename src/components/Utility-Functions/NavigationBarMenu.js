@@ -96,7 +96,8 @@ function ResponsiveAppBar({ pages }) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
+          <CameraAltIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
         
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
