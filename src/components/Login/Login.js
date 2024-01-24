@@ -23,7 +23,7 @@ function Login () {
         password: ''
     })
     useEffect(() => {
-      if (currentUser !== null) {
+      if (currentUser.username !== '') {
         navigate('/')
       }
     },[])

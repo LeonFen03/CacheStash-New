@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from '../User/CurrentUser';
 import { useContext } from 'react';
 import { Button } from '@mui/material';
-import ResponsiveAppBar from '../Utility-Functions/NavigationBarMenu'
+import ResponsiveAppBar from '../Utility-Functions/NavigationBarMenu';
 function NavBar () {
     const navigate = useNavigate();
     const {currentUser, setCurrentUser} = useContext(CurrentUser);
