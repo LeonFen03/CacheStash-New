@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentUser } from '../User/CurrentUser';
 import { useContext } from 'react';
 import { Button } from '@mui/material';
+import ResponsiveAppBar from '../Utility-Functions/NavigationBarMenu'
 function NavBar () {
     const navigate = useNavigate();
     const {currentUser, setCurrentUser} = useContext(CurrentUser);
@@ -23,29 +24,14 @@ function NavBar () {
         localStorage.setItem('token', null);
         
     }
+    const pages = ['about','photodrive','priceplans','public','login'];
+
     useEffect(() => {
 
     },[currentUser])
     
-    return (<div><nav className="main-nav">
-        <div className="logo">
-            <h2  onClick={clickEvent}  >CacheStash <AddAPhotoIcon style={{fontSize:'1.3em'}}/></h2>
-        </div>
-        <ul className="nav-container">
-            <li >
-                <NavLink className="nav-links-class" to="/about">About</NavLink>
-            </li>
-            {currentUser ? <li>  <NavLink className="nav-links-class" to="/photodrive">PhotoDrive</NavLink></li> : ''}
-            <li>
-            <NavLink className="nav-links-class" to="/priceplans">Price Plans</NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-links-class" to="/public"> Public Gallery</NavLink>
-            </li>
-            <li  onClick={() => navigate('/login')} style={{display:'flex',alignItems:'center'}}> {currentUser ? currentUser.username : 'Login'} <AccountCircle /> </li>
-            <li><Button onClick={logout}>Sign out</Button></li>
-        </ul>
-    </nav>
+    return (<div>
+        <ResponsiveAppBar pages={pages} />
     <Outlet />
     </div>)
 }

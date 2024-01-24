@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { NavLink } from "reactrouter-dom";
+import { NavLink } from "react-router-dom";
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
