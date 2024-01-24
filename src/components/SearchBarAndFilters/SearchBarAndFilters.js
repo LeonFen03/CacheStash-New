@@ -101,7 +101,7 @@ function SearchBarAndFilter({photos}) {
         <ColorTabs category={category}  handleCategoryChange={handleCategoryChange} categoriesAvailable={categoriesWithColorTypes} />
       </div>
       <div className="mobile">
-        <BasicSelect categories= {categoriesWithColorTypes} />
+        <BasicSelect categories= {categoriesWithColorTypes} handleCategoryChange={handleCategoryChange}/>
       </div>
     </div>
     </div>

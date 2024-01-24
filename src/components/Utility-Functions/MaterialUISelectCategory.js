@@ -4,6 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useState, useEffect } from 'react';
 
 export default function BasicSelect({categories, handleCategoryChange}) {
 categories = [...categories]
@@ -21,6 +22,7 @@ function handleCategory(e) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
+          value= {category}
           label="Category"
           onChange={handleCategory}
         >
