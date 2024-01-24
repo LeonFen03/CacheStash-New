@@ -20,7 +20,9 @@ export default function BasicSelect() {
           label="Category"
           onChange={handleChange}
         >
-          <MenuItem value={''}></MenuItem>
+         {categories.map((tab) => {
+          return <MenuItem value={`${tab}`}>{tab}</MenuItem>
+        })} 
         </Select>
       </FormControl>
     </Box>
