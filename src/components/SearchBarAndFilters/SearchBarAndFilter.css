@@ -2,3 +2,16 @@
     display:flex;
     align-items: center;
 }
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .not-mobile {
+        display:none;
+    }
+    .mobile {
+        display:block
+    }
+}
