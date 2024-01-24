@@ -5,6 +5,8 @@ import {InputAdornment} from '@mui/material';
 import ColorTabs from '../Utility-Functions/MaterialUITabs';
 import { useMemo, useState,useEffect } from 'react';
 import PhotoContainer from '../PhotoContainer/PhotoContainer';
+import BasicSelect from '../Utility-Functions/MaterialUISelectCategory';
+
 const pagesConverter  = (items,numOfPages = 2) => {
   let pageIndex = 0;
   const pagesArray = [[]];
@@ -95,8 +97,11 @@ function SearchBarAndFilter({photos}) {
           ),
         }}
       />
-      <div>
+      <div className="not-mobile">
         <ColorTabs category={category}  handleCategoryChange={handleCategoryChange} categoriesAvailable={categoriesWithColorTypes} />
+      </div>
+      <div className="mobile">
+        <BasicSelect categories= {categoriesWithColorTypes} handleCategoryChange={handleCategoryChange}/>
       </div>
     </div>
     </div>

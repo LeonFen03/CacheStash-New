@@ -45,12 +45,12 @@ Embark on your journey by creating a complimentary profile, empowering you to ef
           spacing={2}
           justifyContent="center"
         >
-            <Link to="/LandingPage">
+            <Link to="/priceplans">
           <Button variant="contained" color="primary">
-            Home
+            Pricing Info
           </Button>
           </Link>
-          <Link to="SignUp">
+          <Link to="/">
           <Button variant="outlined" color="primary">
             Get Started
           </Button>
