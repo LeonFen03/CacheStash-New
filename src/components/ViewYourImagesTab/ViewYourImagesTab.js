@@ -24,6 +24,7 @@ function ViewYourImagesTab() {
     useEffect(() => {
         grabUserPhotos();
     },[]);
+
     return <div>
         <SearchBarAndFilter photos={userPhotos} />
     </div>

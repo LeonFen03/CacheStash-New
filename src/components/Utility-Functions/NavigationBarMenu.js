@@ -37,7 +37,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor: '#7c9985'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -89,10 +89,10 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={handleCloseNavMenu} style={{color:'white',textDecoration:'none'}}>
                   <NavLink to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
                 </MenuItem>
-                </MenuItem>
+                
               ))}
             </Menu>
           </Box>
