@@ -15,9 +15,13 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { NavLink } from "react-router-dom";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
+import { useContext } from 'react';
+import { CurrentUser } from '../User/CurrentUser';
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar({ pages }) {
+  const {currentUser} = useContext(CurrentUser);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -88,27 +92,45 @@ function ResponsiveAppBar({ pages }) {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <NavLink style={{color:'black',textDecoration:'none'}} to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
-                </MenuItem>
+        {pages.map((page) =>  {
+                if (currentUser.username === '' && page === 'photodrive') {
+                    return '';
+                }
+              return (
                 
-              ))}
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <NavLink  style={{color:'black',textDecoration:'none'}}  to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                </MenuItem>
+            )})}
             </Menu>
           </Box>
 
           <CameraAltIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
         
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
+          {pages.map((page) =>  {
+                if (currentUser.username === '' && page === 'photodrive') {
+                    return '';
+                }
+              return (
+                
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <NavLink  style={{color:'black',textDecoration:'none'}}  to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                </MenuItem>
+            )})}
+            {pages.map((page) => {
+            if (currentUser.username === '' && page === 'photodrive') {
+                    return '';
+            }
+              return (<Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink style={{color:'white',textDecoration:'none'}} to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                <NavLink style={{color:'white',textDecoration:'none'}} to={`/${page}`}> {page}</NavLink>
               </Button>
-            ))}
+            )
+              })}
           </Box>
 
      
