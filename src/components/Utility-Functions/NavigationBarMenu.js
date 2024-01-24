@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { NavLink } from "react-router-dom";
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -39,7 +40,7 @@ function ResponsiveAppBar({ pages }) {
     <AppBar position="static" style={{backgroundColor: '#7c9985'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <CameraAltIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -88,8 +89,8 @@ function ResponsiveAppBar({ pages }) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} style={{color:'white',textDecoration:'none'}}>
-                  <NavLink to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <NavLink style={{color:'white',textDecoration:'none'}} to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
                 </MenuItem>
                 
               ))}
@@ -104,7 +105,7 @@ function ResponsiveAppBar({ pages }) {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <NavLink to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                <NavLink style={{color:'white',textDecoration:'none'}} to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
               </Button>
             ))}
           </Box>
