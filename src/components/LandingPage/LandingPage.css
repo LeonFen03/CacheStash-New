@@ -6,7 +6,7 @@
     width:100vw;
     height:100vh;
     max-width: 1900px;
-    min-width:1300px;
+    /* min-width:1300px; */
     min-height:900px;
     color:black;
     display:flex;
@@ -31,4 +31,15 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display:flex;
     align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .landing-bg {
+        background-size: 170%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .landing-bg {
+        background-size: 150%;
+    }
 }

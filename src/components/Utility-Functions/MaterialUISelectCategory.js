@@ -14,7 +14,22 @@ function handleCategory(e) {
     setCategory(e.target.value);
     handleCategoryChange(e,e.target.value);
   }
-
+  const c =  [["Adventure", "error"],
+  ["Nature", "info"],
+  ["Urban", "warning"],
+  ["Portraits", "success"],
+  ["Travel", "primary"],
+  ["Stuff", "secondary"],
+  ["Events", "primary"],
+  ["All","primary"]]
+  const colorMap = {
+    "Adventure":"red",
+    "Travel": "blue",
+    "Portraits":"green",
+    "Urban":"orange",
+    "Stuff":"purple",
+    "Nature": "blue"
+}
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>

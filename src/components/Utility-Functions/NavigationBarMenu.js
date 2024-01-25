@@ -14,13 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { NavLink } from 'react-router-dom';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
-
 import { useContext } from 'react';
 import { CurrentUser } from '../User/CurrentUser';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar({ pages }) {
+function ResponsiveAppBar({ pages, logout }) {
   const { currentUser} = useContext(CurrentUser);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -98,12 +97,12 @@ function ResponsiveAppBar({ pages }) {
                 }
               return (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <NavLink  style={{color:'black'}}  to={`/${page}`}><Typography textAlign="center">{page}</Typography></NavLink>
+                  <NavLink    to={`/${page}`}><Button style={{color:'black'}}><Typography textAlign="center">{page}</Typography></Button></NavLink>
                 </MenuItem>
             )})}
             </Menu>
           </Box>
-          <CameraAltIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <NavLink style={{color:'white',textDecoration:'none'}} to='/'><CameraAltIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /></NavLink>
          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => {
@@ -119,6 +118,15 @@ function ResponsiveAppBar({ pages }) {
               </Button>
             )
               })}
+          </Box>
+          
+          <Box sx={{ flexGrow: 1, display: { md: 'flex' } }}>
+            {currentUser.username !== '' ? <div style={{display:'flex',alignItems:'center'}}>
+            <Avatar style={{margin:'10px'}} src='' />
+              {currentUser.username !== '' ? currentUser.username : ''}
+              <Button onClick={logout} style={{color:'white'}}>Sign out</Button>
+            </div>
+: ''}
           </Box>
 
         </Toolbar>

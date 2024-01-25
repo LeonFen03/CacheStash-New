@@ -59,7 +59,7 @@ function SearchBarAndFilter({photos}) {
           return photo.category[0] === category;
         });
     })
-
+    console.log(category)
   },[photos,category])
 
   const sortedFiltered = useMemo(() => {
@@ -105,7 +105,7 @@ function SearchBarAndFilter({photos}) {
       </div>
     </div>
     </div>
-    <PhotoContainer sortedFiltered={sortedFiltered[pageNumber]} numOfPages={sortedFiltered.length} pageNumber={pageNumber} turnPage={turnPage} />
+    <PhotoContainer category={category} sortedFiltered={sortedFiltered[pageNumber]} numOfPages={sortedFiltered.length} pageNumber={pageNumber} turnPage={turnPage} />
     
     </div>)
 }

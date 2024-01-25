@@ -20,7 +20,7 @@ function NavBar () {
         if (currentUser !== null) {
             navigate('/');
         }
-        setCurrentUser(null);
+        setCurrentUser({username:''});
         localStorage.setItem('token', null);
         
     }
@@ -31,7 +31,7 @@ function NavBar () {
     },[currentUser])
     
     return (<div>
-        <ResponsiveAppBar pages={pages} />
+        <ResponsiveAppBar logout={logout} pages={pages} />
     <Outlet />
     </div>)
 }

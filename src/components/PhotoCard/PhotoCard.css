@@ -1,16 +1,20 @@
 .image-container {
-    flex-basis: calc(33.333% - 10px); /* Three images per row, adjust as needed */
     overflow: hidden;
     transition:1s;
     cursor: pointer;
     position:relative;
     border-radius:20px;
+    min-width:200px;
     z-index:3;
+}
+.image-container:hover {
+    transform:scale(1.03);
 }
 .user-header {
     display:flex;
     padding:20px;
     padding-right:30px;
+    flex-wrap:wrap;
     align-items:center;
     justify-content: space-between;
     
@@ -22,9 +26,7 @@
 .user-header p {
     margin:10px;
 }
-.image-container:hover {
-    transform:scale(1.03);
-}
+
 .image-container img {
     display: block;
   width: 100%;
@@ -48,4 +50,7 @@
 .overlay:hover {
     color:white;
     background-color: rgba(0, 0, 0, 0.701);
+}
+@media only screen and (max-width: 900px) {
+
 }

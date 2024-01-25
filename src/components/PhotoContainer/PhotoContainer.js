@@ -5,7 +5,8 @@ import { useMemo } from 'react';
 import PhotoCard from '../PhotoCard/PhotoCard';
 import PaginationRanges from '../Utility-Functions/Pagination';
 import MasonryImageList from '../Utility-Functions/ImageOrganization';
-function PhotoContainer({sortedFiltered, numOfPages, turnPage}) {
+import MaterialUIChip from '../Utility-Functions/MaterialUIChipComponent';
+function PhotoContainer({sortedFiltered, numOfPages, turnPage, category}) {
     return (<div className="photo-card-container">
         <div className="page-section">
             <PaginationRanges numOfPages={numOfPages} turnPage={turnPage} />

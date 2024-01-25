@@ -28,13 +28,13 @@ function Signup () {
 
   }
 
-    return (<div className="signup-container"> 
-    <h2>Sign up</h2>
+    return (<div className="signup-container "> 
+    <h2 className="">Sign up</h2>
     <div className="input-box">
         <TextField
         id="input-with-icon-textfield"
         label="Email"
-        style={{maxWidth:'400px',width:'90%',minWidth:'300px',marginBottom:'30px'}}
+        style={{maxWidth:'300px',width:'80%',minWidth:'300px',marginBottom:'30px'}}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -54,7 +54,7 @@ function Signup () {
         <TextField
         id="input-with-icon-textfield"
         label="Username"
-        style={{maxWidth:'400px',width:'90%',minWidth:'300px',marginBottom:'30px'}}
+        style={{maxWidth:'300px',width:'80%',minWidth:'300px',marginBottom:'30px'}}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -77,7 +77,7 @@ function Signup () {
           type="password"
           autoComplete="current-password"
           variant="standard"
-          style={{maxWidth:'400px',width:'90%',minWidth:'300px',marginBottom:'30px'}}
+          style={{maxWidth:'300px',width:'80%',minWidth:'300px',marginBottom:'30px'}}
           onChange={(e) => setProfile((prev) => {
             return {...prev, 
             password: e.target.value
