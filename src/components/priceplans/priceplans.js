@@ -30,7 +30,9 @@ function PricePlans() {
         <div className="card-header">
         <h2>600 GB  - $45 / mo.</h2>
         <div className="overlay-card">
-            <p>For users with a growing library of photos and videos, the Premium Plan offers an impressive 600 GB of storage. This plan is tailored for individuals or small businesses that require a more extensive storage capacity to store and organize a diverse range of multimedia conten</p>
+            <p>For users with a growing library of photos and videos, the Premium Plan offers an impressive 600 GB of storage. This plan is tailored for individuals or small businesses that require a more extensive storage capacity to store and organize a diverse range of multimedia content
+                
+            </p>
         </div>
         </div>
         <Button variant='contained'>Get started</Button>
@@ -46,7 +48,7 @@ function PricePlans() {
         </div>
         <div className="card">
         <div className="card-header">
-        <h2>10 GB   - $5 / mo.</h2>
+        <h2>2 GB   - $120 / mo.</h2>
 
         <div className="overlay-card">
         <p>
