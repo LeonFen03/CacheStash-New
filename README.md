@@ -15,7 +15,7 @@
 
 ## General Information
 - Cache Stash was created by Leon Fennell, Mark Campbell, Tristan Glock, and Hannah Mills. This project serves as our final portfolio piece for the Software Development Course through North Carolina State University Continuing Education Program. 
-- This project was created to help store images in a secure location, making sure that personal memories cannot be lost. Many of our group members have faced this issue before and appreciate current systems of cloud storage that allow for photo storage. This app is our take on a storage and photo sharing system, testing out features we were curious about such as a photo tagging system and search functionality. 
+- This project was created to help store images in a secure location, making sure that personal memories cannot be lost. Many of our group members have faced this issue before and appreciate the stability of the current systems of cloud storage that allow for photo storage. This app is our take on a storage and photo sharing system, testing out features we were curious about, such as a photo tagging system and search functionality. 
 
 ## Technologies Used
 - Node.js
