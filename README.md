@@ -40,20 +40,21 @@
 <!-- update setup when deployed -->
 
 ## Usage
-<!-- update useage here when depolyed -->
+<!-- update usage here when deployed -->
 
 ## Project Status
 Project is: _in progress_ 
 
 ## Stretch Goals
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
 - Updating styling and UI
 
 To do:
 - Photo link sharing
 - Set user photos to public or private
+
+Outstanding Bugs:
+- Bugs here
 
 ## Acknowledgements
 - This project was inspired by sites like Google Drive and Dropbox. 
