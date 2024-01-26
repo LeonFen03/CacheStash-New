@@ -43,6 +43,7 @@ function ResponsiveAppBar({ pages, logout }) {
     <AppBar position="static" style={{backgroundColor:'#7c9985'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <NavLink style={{display:'flex'}} to="/">
           <CameraAltIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -61,7 +62,7 @@ function ResponsiveAppBar({ pages, logout }) {
           >
             LOGO
           </Typography>
-
+          </NavLink>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
