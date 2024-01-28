@@ -34,13 +34,8 @@
 - Photo tagging system, user can create their own tags
 
 ## Screenshots
-<!-- add screenshots before deployment here -->
-
-## Setup
-<!-- update setup when deployed -->
-
-## Usage
-<!-- update usage here when deployed -->
+![CacheStash-Home](./src/components/placeholder_images/CacheStash_Screenshot.png)
+![CacheStash-Home](./src/components/placeholder_images/CacheStash_Public_Screenshot.png)
 
 ## Project Status
 Project is: _in progress_ 

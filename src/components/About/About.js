@@ -55,15 +55,9 @@ Embark on your journey by creating a complimentary profile, empowering you to ef
             Get Started
           </Button>
           </Link>
-          {/* might need to fix routes for these */}
+          
         </Stack>
         <Box sx={{ mt: 4, textAlign: 'center' }}>
-          {/* should we use the logo here or another image? */}
-          {/* <img
-            src="./placeholder_images/balloon-bg.png" 
-            alt="Balloon Logo"
-            style={{ maxWidth: '100%', height: 'auto' }}
-          /> */}
         </Box>
       </Container>
     </Box>
