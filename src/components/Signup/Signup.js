@@ -42,7 +42,6 @@ function Signup () {
             </InputAdornment>
           ),
         }}
-        variant="standard"
         onChange={(e) => setProfile((prev) => {
           return {...prev, 
           email: e.target.value
@@ -62,7 +61,6 @@ function Signup () {
             </InputAdornment>
           ),
         }}
-        variant="standard"
         onChange={(e) => setProfile((prev) => {
           return {...prev, 
           username: e.target.value
@@ -76,7 +74,6 @@ function Signup () {
           label="Password"
           type="password"
           autoComplete="current-password"
-          variant="standard"
           style={{maxWidth:'300px',width:'80%',minWidth:'300px',marginBottom:'30px'}}
           onChange={(e) => setProfile((prev) => {
             return {...prev, 

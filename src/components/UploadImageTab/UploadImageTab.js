@@ -93,16 +93,19 @@ function UploadImageTab() {
         }
     },[image]);
     return <div className="upload-container">
+        <div className=" flex flex-col justify-start items-start">
 
-        <div className="upload-container">
-           <div ref={dropzoneRef} className="dropzone">
+        <div className="flex justify-center w-11/12 flex-col items-center">
+            <div className="upload-container form-container">
+            <div ref={dropzoneRef} className="dropzone">
+                </div>
             </div>
-        </div>
-        <div className="upload-container">
+            <div className="upload-container form-container">
             <h2>Upload file here</h2>
-        <Button onClick={handleUpload} >Submit</Button>
         </div>
-        <div className="upload-description">
+        </div>
+        
+        <div className="upload-description form-container">
         <TextField
         id="input-with-icon-textfield"
         label="Title"
@@ -116,11 +119,10 @@ function UploadImageTab() {
             </InputAdornment>
           ),
         }}
-        variant="standard"
         onChange={handleChange}
       />
         </div>
-        <div>
+        <div className="form-container">
         <TextField
           id="standard-multiline-static"
           label="Description"
@@ -130,12 +132,13 @@ function UploadImageTab() {
           value={image.description}
           style={{width:'500px'}}
           defaultValue="Default Value"
-          variant="standard"
           onChange={handleChange}
         />
         </div>
-        <div>
+        <div className="form-container flex justify-between w-11/12 h-9">
 <SelectSmall category={image.category} selectCategory={handleChange} />
+<Button style={{backgroundColor:'#5561DD'}}  variant='contained' onClick={handleUpload} >Submit</Button>
+        </div>
         </div>
     </div>
 }

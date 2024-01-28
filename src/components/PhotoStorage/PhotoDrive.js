@@ -10,7 +10,7 @@ function PhotoDrive() {
     
     return (<div className="photodrive-container">
         <div className="user-title">
-            <h2>Welcome, {currentUser !== null ?currentUser.username : ''}</h2>
+            {/* <h2>Welcome, {currentUser !== null ?currentUser.username : ''}</h2> */}
         </div>
         <div className="user-photo-creator">
             <BasicTabs />

@@ -6,7 +6,9 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import UploadImageTab from '../UploadImageTab/UploadImageTab';
 import ViewYourImagesTab from '../ViewYourImagesTab/ViewYourImagesTab';
+import { useState,useEffect } from 'react';
 function CustomTabPanel(props) {
+  
   const { children, value, index, ...other } = props;
 
   return (
@@ -29,17 +31,21 @@ function CustomTabPanel(props) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  const [activeTab,setActiveTab] = useState('Upload-Image');
+  useEffect(() => {
+    console.log(activeTab);
+  },[activeTab])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box className="bg-[#cbddeb]" sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs variant="fullWidth" centered value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab  label="Upload-Image"/>
-          <Tab  label="View your Images" />
+        <Tabs indicatorColor='success'  variant="fullWidth" centered value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab onClick={(e) => setActiveTab('Upload-Image')} style={{backgroundColor: activeTab === 'Upload-Image' ? '#4C6454' : '#7c9985',color:'white'}}  label="Upload-Image"/>
+          <Tab onClick={(e) => setActiveTab('View your Images')} style={{backgroundColor: activeTab === 'View your Images' ? '#4C6454' : '#7c9985',color:'white'}} label="View your Images" />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
