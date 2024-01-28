@@ -13,7 +13,7 @@ function ViewYourImagesTab() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id:currentUser._id
+                user_id:currentUser._id
             })
         })
         setUserPhotos(await response.json());

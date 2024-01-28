@@ -40,7 +40,7 @@ function ResponsiveAppBar({ pages, logout }) {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor:'#7c9985'}}>
+    <AppBar position="sticky" style={{backgroundColor:'#7c9985'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <NavLink style={{display:'flex'}} to="/">
@@ -107,7 +107,7 @@ function ResponsiveAppBar({ pages, logout }) {
          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => {
-            if (currentUser.username === '' && page === 'photodrives') {
+            if (currentUser.username === '' && page === 'photodrive') {
                     return '';
             }
               return (<Button

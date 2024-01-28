@@ -15,15 +15,39 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectSmall from "../Utility-Functions/MaterialUISelectComponent";
 import { useCallback } from "react";
+import {Alert} from "@mui/material";
+import Switch from '@mui/material/Switch';
+import { Label } from "@mui/icons-material";
 Dropzone.autoDiscover = false;
 function UploadImageTab() {
+    const [error,setError] = useState({
+        message:''
+    });
     const {currentUser} = useContext(CurrentUser);
     const [image,setImage] = useState({
         title:'',
         description:'',
+        public:false,
         category:''
     });
-
+    function onChecked(e) {
+        setImage((prev) => {
+            return {
+                ...prev,
+                public:e.target.checked,
+            }
+        });
+    }
+    function handleError (message) {
+        setError({
+            message:message
+        })
+        setTimeout(() => {
+            setError({
+                message:''
+            })
+        },3000);
+    }
     function handleChange (e) {
         const {name, value} = e.target;
         setImage((prev) => ({
@@ -40,8 +64,6 @@ function UploadImageTab() {
     },[image])
     const dropzoneRef = useRef(null);
     useEffect(() => {
-
-    
         if (dropzoneRef.current) {
             const dz = new Dropzone(dropzoneRef.current, {
                 url: 'http://localhost:4000/upload',
@@ -49,7 +71,6 @@ function UploadImageTab() {
             });
     
             dz.on("sending", function(file, xhr, formData) {
-                console.log(file.formData)
                 if (file.formData) {
                     for (let [key, value] of file.formData.entries()) {
                         formData.append(key, value);
@@ -75,8 +96,10 @@ function UploadImageTab() {
             };
         }
     }, []);
-
     const handleUpload = useCallback(() => {
+        if (!image.title || !image.category) {
+            handleError('Please enter the title and the category for the photo');
+        }
         if (dropzoneRef.current) {
             const dz = dropzoneRef.current.dropzone;
     
@@ -94,7 +117,7 @@ function UploadImageTab() {
     },[image]);
     return <div className="upload-container">
         <div className=" flex flex-col justify-start items-start">
-
+        {error.message ? <Alert severity="error">{error.message}</Alert> : ''}
         <div className="flex justify-center w-11/12 flex-col items-center">
             <div className="upload-container form-container">
             <div ref={dropzoneRef} className="dropzone">
@@ -104,8 +127,11 @@ function UploadImageTab() {
             <h2>Upload file here</h2>
         </div>
         </div>
-        
         <div className="upload-description form-container">
+            <div className="flex items-center">
+                <p>Public:</p>
+                <Switch onChange={onChecked}  />
+            </div>
         <TextField
         id="input-with-icon-textfield"
         label="Title"

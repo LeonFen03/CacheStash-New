@@ -41,7 +41,7 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box className="bg-[#cbddeb]" sx={{ width: '100%' }}>
+    <Box className="bg-[#f6f6f6]" sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs indicatorColor='success'  variant="fullWidth" centered value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab onClick={(e) => setActiveTab('Upload-Image')} style={{backgroundColor: activeTab === 'Upload-Image' ? '#4C6454' : '#7c9985',color:'white'}}  label="Upload-Image"/>

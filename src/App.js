@@ -10,7 +10,7 @@ import Login from './components/Login/Login';
 import PhotoDrive from './components/PhotoStorage/PhotoDrive';
 import About from './components/About/About';
 import PricePlans from './components/priceplans/priceplans';
-
+import PhotoWebLink from './components/PhotoWebLink/PhotoWebLink.js';
 function App() {
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/"  element={<NavBar />}> 
@@ -19,6 +19,9 @@ function App() {
       <Route path="/public" element={<PhotoGallery />} />
       <Route path="/photodrive" element={<PhotoDrive />} />
       <Route path="/about" element={<About />}/>
+      <Route path="/photo" element={<PhotoWebLink />}>
+        <Route path=":id" />
+      </Route >
       <Route path="/priceplans" element={<PricePlans />}/>
     </Route>))
 

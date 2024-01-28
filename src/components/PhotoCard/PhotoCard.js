@@ -8,6 +8,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import {Button} from '@mui/material';
 import BasicModal from '../Utility-Functions/MaterialUIModal';
 import motion from 'framer-motion';
+import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 function PhotoCard ({ photo_url, title, name, avatar_url, description, category, id }) {
     const colorMap = {
         "error":"image-container mxsm:border-4 mxsm:border-red-500",
@@ -17,8 +19,6 @@ function PhotoCard ({ photo_url, title, name, avatar_url, description, category,
         "secondary":"image-container mxsm:border-4 mxsm:border-purple-500",
         "info": "image-container mxsm:border-4 mxsm:border-blue-500"
     }
-    console.log(colorMap[category[1]])
-    console.log(category[1])
     const { currentUser } = useContext(CurrentUser);
     async function deletePhoto() {
         const response = await fetch(`http://localhost:4000/images/${id}`, {

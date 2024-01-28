@@ -56,7 +56,7 @@ function PhotoGallery () {
 
                 return {
                     ...object,
-                    _id:0,
+                    _id:object.id,
                     image_url:object.urls.regular,
                     user_name:object.user.username,
                     avatar_url:object.user.profile_image.medium,

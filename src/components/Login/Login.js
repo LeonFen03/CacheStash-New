@@ -12,9 +12,13 @@ import { Button} from '@mui/material';
 import { CurrentUser } from "../User/CurrentUser";
 import { useNavigate } from "react-router";
 import {motion} from 'framer-motion';
-
+import { useCallback } from 'react';
+import {Alert} from '@mui/material';
 import './Login.css';
 function Login () {
+    const [error,setError] = useState({
+      message:''
+    })
     const [showPassword,setShowPassword] = useState(false);
     const { currentUser,setCurrentUser } = useContext(CurrentUser);
     const navigate = useNavigate();
@@ -22,6 +26,16 @@ function Login () {
         email: '',
         password: ''
     })
+    function handleError (message) {
+      setError({
+          message:message
+      })
+      setTimeout(() => {
+          setError({
+              message:''
+          })
+      },3000);
+  }
     useEffect(() => {
       if (currentUser.username !== '') {
         navigate('/')
@@ -30,8 +44,8 @@ function Login () {
     function handleClickShowPassword() {
         setShowPassword(!showPassword)
     }
-    async function handleSubmit(e) {
-        e.preventDefault()
+    const handleSubmit = useCallback(async (e) => {
+        e.preventDefault();
         const response = await fetch(`http://localhost:4000/authentication/`, {
             method: 'POST',
             headers: {
@@ -45,16 +59,21 @@ function Login () {
         if (response.status === 200) {
             setCurrentUser(data.user)
             localStorage.setItem('token', data.token);
-        } 
-        navigate('/');
-    }
+            navigate('/');
+        } else {
+            handleError('Your email or password was incorrect')
+        }
+    },[credentials])
     return (<motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1}}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.7 }}
-    > <div className="center center-login">
-        <div className="login-box">
+    > <div className="center center-login flex-col">
+        <div className="login-box relative">
+          <div className="absolute -top-10">
+              {error.message ? <Alert severity="error">{error.message}</Alert> : ''}
+          </div>
           <h1>Login</h1>
           <div className="login-form">
           <TextField
